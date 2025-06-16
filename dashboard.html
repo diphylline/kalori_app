@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KALORI_APP | Dasbor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <nav class="user-nav">
+        <div>Selamat datang, <strong id="username-display">Pengguna</strong>!</div>
+        <div>
+            <a href="profil.html" class="nav-button">Profil & Target</a>
+            <button id="tombol-logout" class="nav-button logout">Logout</button>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Dasbor Kalori</h1>
+        <p>Total Catatan Makanan Anda</p>
+    </header>
+
+    <main>
+        <section class="kartu-ringkasan">
+            <h2>Ringkasan Hari Ini</h2>
+            <div class="info-kalori">
+                <span id="kalori-masuk">0</span>
+                <span>/</span>
+                <span id="target-kalori">2000</span>
+                <span>kkal</span>
+            </div>
+        </section>
+
+        <section class="catatan-makanan">
+            <div class="grup-makanan">
+                <h3>Sarapan</h3>
+                <ul id="daftar-sarapan"></ul>
+                <button class="tombol-tambah">+ Tambah Makanan</button>
+            </div>
+            <div class="grup-makanan">
+                <h3>Makan Siang</h3>
+                <ul id="daftar-makan-siang"></ul>
+                <button class="tombol-tambah">+ Tambah Makanan</button>
+            </div>
+             <div class="grup-makanan">
+                <h3>Makan Malam</h3>
+                <ul id="daftar-makan-malam"></ul>
+                <button class="tombol-tambah">+ Tambah Makanan</button>
+            </div>
+        </section>
+        </main>
+
+    <div id="modal-tambah-makanan" class="modal">
+        <div class="modal-konten">
+            <span class="tutup-modal">&times;</span>
+            <div class="auth-title" style="margin-bottom: 1em;">
+                 <h2 id="modal-tambah-judul">Tambah Makanan</h2>
+            </div>
+            <form id="form-tambah-makanan">
+                <input type="hidden" id="edit-id">
+                <div class="input-group">
+                    <i class="fa-solid fa-utensils"></i>
+                    <input type="text" id="nama-makanan" placeholder="Nama Makanan" required>
+                </div>
+                <div class="input-group">
+                    <i class="fa-solid fa-fire-flame-curved"></i>
+                    <input type="number" id="jumlah-kalori" placeholder="Jumlah Kalori (kkal)" required>
+                </div>
+                <div class="form-group">
+                    <select id="waktu-makan" required>
+                        <option value="sarapan">Sarapan</option>
+                        <option value="makan-siang">Makan Siang</option>
+                        <option value="makan-malam">Makan Malam</option>
+                    </select>
+                </div>
+                <button type="submit" id="tombol-submit-form">Simpan ke Catatan</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="modal-detail" class="modal">
+        <div class="modal-konten">
+            <span class="tutup-modal">&times;</span>
+            <div class="auth-title" style="margin-bottom: 1em;">
+                <h2>Opsi Makanan</h2>
+            </div>
+            <div id="detail-makanan-info"></div>
+            <div class="opsi-tombol">
+                <button id="tombol-edit-dari-detail" class="nav-button">Edit</button>
+                <button id="tombol-hapus-dari-detail" class="nav-button logout">Hapus</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+/* ===== KALORI_APP THEME V2: ENERGETIC & SPORTY ===== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+:root {
+    --bg-dark: #1A1D24;
+    --card-dark: #2A2F3A;
+    --text-light: #F0F2F5;
+    --text-muted: #8A93A2;
+    --accent-green: #45D758;
+    --accent-red: #dc3545;
+    --border-color: #404656;
+}
+body { font-family: 'Poppins', sans-serif; background-color: var(--bg-dark); color: var(--text-light); margin: 0; padding: 20px; }
+.user-nav { display: flex; justify-content: space-between; align-items: center; background-color: var(--card-dark); padding: 10px 20px; border-radius: 8px; margin-bottom: 20px; border: 1px solid var(--border-color); }
+.user-nav strong { color: var(--accent-green); }
+.nav-button { text-decoration: none; display: inline-block; color: white; background: var(--accent-green); padding: 8px 15px; border-radius: 8px; border: none; cursor: pointer; font-family: 'Poppins', sans-serif; font-size: 1em; font-weight: 500; margin-left: 10px; transition: transform 0.2s; }
+.nav-button:hover { transform: translateY(-2px); }
+.nav-button.logout { background-color: var(--accent-red); }
+header { text-align: center; margin-bottom: 20px; }
+header h1 { margin: 0; }
+.kartu-ringkasan, .grup-makanan { background-color: var(--card-dark); border-radius: 16px; padding: 20px; margin-bottom: 20px; border: 1px solid var(--border-color); }
+.kartu-ringkasan h2, .grup-makanan h3 { margin-top: 0; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; font-weight: 500; }
+.info-kalori { font-size: 2.5em; font-weight: 700; text-align: center; margin: 20px 0; }
+.grup-makanan ul { list-style-type: none; padding: 0; min-height: 20px; }
+.grup-makanan li { display: flex; justify-content: space-between; align-items: center; padding: 12px 8px; border-bottom: 1px solid var(--border-color); cursor: pointer; transition: background-color 0.2s; }
+.grup-makanan li:hover { background-color: #343a4a; }
+.grup-makanan li:last-child { border-bottom: none; }
+.tombol-tambah { width: 100%; padding: 1em; border: none; border-radius: 8px; background: var(--accent-green); color: #111; font-family: 'Poppins', sans-serif; font-size: 1em; font-weight: 500; cursor: pointer; margin-top: 10px; transition: transform 0.2s, box-shadow 0.2s; }
+.tombol-tambah:hover { transform: translateY(-2px); box-shadow: 0 4px 15px rgba(69, 215, 88, 0.3); }
+.modal { display: none; position: fixed; z-index: 10; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0, 0, 0, 0.7); backdrop-filter: blur(5px); }
+.modal-konten { background-color: var(--card-dark); margin: 15% auto; padding: 25px; border: 1px solid var(--border-color); width: 90%; max-width: 500px; border-radius: 16px; position: relative; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
+.tutup-modal { color: var(--text-muted); float: right; font-size: 28px; font-weight: bold; cursor: pointer; }
+#form-tambah-makanan { margin-top: 1.5em; }
+#detail-makanan-info { padding: 20px 0; font-size: 1.2em; text-align: center; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); margin: 20px 0; }
+.opsi-tombol { display: flex; justify-content: space-around; }
+.auth-page { display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 10px; }
+.auth-container { width: 90%; max-width: 420px; padding: 2.5em; background-color: var(--card-dark); border-radius: 16px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); border: 1px solid var(--border-color); }
+.auth-title { text-align: center; margin-bottom: 2em; }
+.auth-title h1 { font-weight: 700; font-size: 2.5em; margin: 0; background: -webkit-linear-gradient(45deg, var(--accent-green), #9dffb3); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.auth-title p { margin: 0.25em 0 0 0; color: var(--text-muted); }
+.input-group { position: relative; margin-bottom: 1.5em; }
+.input-group i { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--text-muted); }
+.input-group input, .form-group select { width: 100%; padding: 1em 1em 1em 2.5em; border-radius: 8px; border: 1px solid var(--border-color); background-color: var(--bg-dark); color: var(--text-light); font-family: 'Poppins', sans-serif; font-size: 1em; box-sizing: border-box; transition: border-color 0.3s, box-shadow 0.3s; }
+.form-group select { padding: 1em; } /* Select tidak butuh padding ikon */
+.input-group input:focus, .form-group select:focus { outline: none; border-color: var(--accent-green); box-shadow: 0 0 0 3px rgba(69, 215, 88, 0.2); }
+.form-group-inline { margin: 1em 0; display: flex; align-items: center; }
+.auth-switch { text-align: center; margin-top: 1.5em; }
+.auth-switch a { color: var(--accent-green); text-decoration: none; font-weight: 500; }
+.error-text { color: #ff6b6b; text-align: center; height: 1em; margin-top: 1em; }
+.hidden { display: none; }
+.tdee-result { text-align: center; background-color: #1e1e1e; padding: 10px; border-radius: 8px; margin-bottom: 20px; }
+#final-result-container { margin-top: 1.5em; text-align: center; line-height: 1.5; }
