@@ -6,12 +6,12 @@
     <title>Profil & Target Kalori</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
+    <header class="main-header">
         <div class="auth-title" style="margin-bottom: 0;">
              <h1>Profil & Target</h1>
              <p>Atur target kalori harian Anda di sini</p>
@@ -23,7 +23,10 @@
             <form id="tdee-form">
                 <div class="input-group">
                     <i class="fa-solid fa-venus-mars"></i>
-                    <select id="gender" required><option value="male">Pria</option><option value="female">Wanita</option></select>
+                    <select id="gender" required>
+                        <option value="male">Pria</option>
+                        <option value="female">Wanita</option>
+                    </select>
                 </div>
                 <div class="input-group">
                     <i class="fa-solid fa-cake-candles"></i>
@@ -40,6 +43,7 @@
                 <div class="input-group">
                      <i class="fa-solid fa-person-running"></i>
                     <select id="activity-level" required>
+                        <option value="" disabled selected>Pilih Level Aktivitas</option>
                         <option value="1.2">Jarang (Pekerja kantor)</option>
                         <option value="1.375">Ringan (Olahraga 1-3x seminggu)</option>
                         <option value="1.55">Sedang (Olahraga 3-5x seminggu)</option>
@@ -47,32 +51,34 @@
                         <option value="1.9">Sangat Aktif (Pekerjaan fisik/atlet)</option>
                     </select>
                 </div>
-                <button type="submit">Hitung Kalori Dasar (TDEE)</button>
+                <button type="submit" class="button-utama">Hitung Kalori Dasar (TDEE)</button>
             </form>
 
             <hr>
 
             <div id="goal-section" class="hidden">
                 <h2>Langkah 2: Pilih Tujuan Anda</h2>
-                <div class="tdee-result">
-                    <p>Kebutuhan Kalori Dasar (TDEE) Anda:</p>
-                    <h3 id="tdee-display">0 kkal</h3>
+                <div class="tdee-intermediate-result">
+                    <p>Kalori Dasar (TDEE) Anda: <strong id="tdee-display">0 kkal</strong></p>
                 </div>
                 <form id="goal-form">
                     <div class="input-group">
                         <i class="fa-solid fa-bullseye"></i>
                         <select id="goal-select">
                             <option value="0">Mempertahankan Berat Badan</option>
-                            <option value="-500">Turun Berat Badan Pelan-pelan</option>
+                            <option value="-500">Turun Berat Badan Pelan</option>
                             <option value="-1000">Turun Berat Badan Drastis</option>
-                            <option value="500">Naik Berat Badan Pelan-pelan</option>
+                            <option value="500">Naik Berat Badan Pelan</option>
                             <option value="1000">Naik Berat Badan Drastis</option>
                         </select>
                     </div>
-                    <button type="submit">Simpan Target Baru</button>
+                    <button type="submit" class="button-utama">Simpan Target Baru</button>
                 </form>
             </div>
-            <div id="final-result-container"><h3 id="hasil-kalkulasi"></h3></div>
+            <div id="result-area" class="hidden">
+                 <h3 id="final-tdee-display"></h3>
+                 <small id="result-breakdown"></small>
+            </div>
         </div>
         <div class="auth-switch">
              <a href="dashboard.html">Kembali ke Dasbor</a>

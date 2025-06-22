@@ -54,14 +54,23 @@
                 <button class="tombol-tambah">+ Tambah Makanan</button>
             </div>
         </section>
-        </main>
+    </main>
 
     <div id="modal-tambah-makanan" class="modal">
         <div class="modal-konten">
             <span class="tutup-modal">&times;</span>
             <div class="auth-title" style="margin-bottom: 1em;">
-                 <h2 id="modal-tambah-judul">Tambah Makanan</h2>
+                <h2 id="modal-tambah-judul">Tambah Makanan</h2>
             </div>
+            
+            <div class="grup-pencarian">
+                <p><strong>Cari dari Database Online</strong></p>
+                <input type="search" id="input-pencarian" placeholder="Contoh: chicken, rice, dll...">
+                <button id="tombol-cari">Cari</button>
+            </div>
+            <div id="wadah-hasil-pencarian"></div>
+            <hr>
+            <h2 id="judul-form-manual">Atau Tambah Manual</h2>
             <form id="form-tambah-makanan">
                 <input type="hidden" id="edit-id">
                 <div class="input-group">
@@ -87,7 +96,7 @@
     <div id="modal-detail" class="modal">
         <div class="modal-konten">
             <span class="tutup-modal">&times;</span>
-            <div class="auth-title" style="margin-bottom: 1em;">
+             <div class="auth-title" style="margin-bottom: 1em;">
                 <h2>Opsi Makanan</h2>
             </div>
             <div id="detail-makanan-info"></div>
