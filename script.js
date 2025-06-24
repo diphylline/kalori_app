@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", async function () {
-  // === BAGIAN 1: STATE APLIKASI & OTENTIKASI ===
+ 
   const token = localStorage.getItem("authToken");
   if (!token) {
     window.location.href = "/";
@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   let currentlyEditingItem = null;
   let totalKalori = 0;
 
-  // Fungsi untuk membuat header otentikasi
+  
   function getAuthHeaders() {
     return {
       "Content-Type": "application/json",
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     };
   }
 
-  // Cek sesi & tampilkan info user
+  
   try {
     const sessionResponse = await fetch("/me", { headers: getAuthHeaders() });
     if (!sessionResponse.ok) throw new Error("Sesi tidak valid");
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     return;
   }
 
-  // === BAGIAN 2: MENGAMBIL SEMUA ELEMEN HTML ===
+  
   const kaloriMasukEl = document.getElementById("kalori-masuk");
   const daftarMakananElements = {
     sarapan: document.getElementById("daftar-sarapan"),
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   const tombolCari = document.getElementById("tombol-cari");
   const wadahHasilPencarian = document.getElementById("wadah-hasil-pencarian");
 
-  // === BAGIAN 3: FUNGSI-FUNGSI APLIKASI ===
+  
   function perbaruiTotalKalori() {
     kaloriMasukEl.textContent = Math.round(totalKalori);
   }
@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       const namaMakanan = food.food_name || "Nama tidak tersedia";
       const deskripsi = food.food_description || "Deskripsi tidak tersedia";
 
-      // Extract kalori dari food_description (format: "Per 1 serving - Calories: 644kcal | Fat: 35g...")
+      
       let kaloriInfo = "0";
       if (deskripsi) {
         const kaloriMatch = deskripsi.match(/Calories:\s*(\d+)/i);
@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
       }
 
-      // Extract serving info dari description
+      
       let servingInfo = "porsi";
       const servingMatch = deskripsi.match(/Per\s+([^-]+)/i);
       if (servingMatch) {
@@ -190,7 +190,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     inputPencarian.value = "";
   }
 
-  // === BAGIAN 4: EVENT LISTENERS ===
+  
   tombolLogout.addEventListener("click", () => {
     localStorage.removeItem("authToken");
     localStorage.removeItem("currentUser");
@@ -213,7 +213,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       const result = await response.json();
 
       if (result.status === "sukses" && result.data.foods_search) {
-        // Sesuaikan dengan struktur response FatSecret
+        
         const foods = result.data.foods_search.food || [];
         tampilkanHasilPencarian(foods);
       } else {
@@ -288,6 +288,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
   });
 
-  // === BAGIAN 5: INISIALISASI HALAMAN ===
+  
   muatDataMakanan();
 });

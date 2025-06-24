@@ -1,5 +1,3 @@
-// ===== FILE SERVER.JS VERSI FINAL STABIL (SEMUA FITUR TERMASUK EDIT & HAPUS) =====
-
 const express = require("express");
 const cors = require("cors");
 const mysql = require("mysql2");
@@ -12,10 +10,10 @@ const fatsecret = new FatSecretService();
 const app = express();
 const PORT = 3000;
 
-// Konfigurasi Kunci Rahasia
+
 const JWT_SECRET = 'kalori_app_secret_key';
 
-// Middleware
+
 app.use(
   cors({
     origin: function (origin, callback) {
@@ -28,7 +26,7 @@ app.use(
 app.use(express.json());
 app.use(express.static(path.join(__dirname)));
 
-// Konfigurasi Database
+
 const pool = mysql
   .createPool({
     host: "localhost",
@@ -38,7 +36,7 @@ const pool = mysql
   })
   .promise();
 
-// Middleware untuk melindungi rute dengan Token
+
 const authenticateUser = (req, res, next) => {
   const authHeader = req.headers["authorization"];
   const token = authHeader && authHeader.split(" ")[1];
@@ -50,7 +48,7 @@ const authenticateUser = (req, res, next) => {
   });
 };
 
-// === API ROUTES ===
+
 
 app.post("/register", async (req, res) => {
   const { username, email, password } = req.body;
@@ -198,7 +196,7 @@ app.post("/tambah-makanan", authenticateUser, async (req, res) => {
   }
 });
 
-// ** RUTE UNTUK EDIT MAKANAN **
+
 app.put("/makanan/:id", authenticateUser, async (req, res) => {
   const { nama, kalori, waktu } = req.body;
   try {
@@ -216,7 +214,7 @@ app.put("/makanan/:id", authenticateUser, async (req, res) => {
   }
 });
 
-// ** RUTE UNTUK HAPUS MAKANAN **
+
 app.delete("/makanan/:id", authenticateUser, async (req, res) => {
   try {
     const [result] = await pool.query(
@@ -233,7 +231,7 @@ app.delete("/makanan/:id", authenticateUser, async (req, res) => {
   }
 });
 
-// Menjalankan server
+
 app.listen(PORT, async () => {
   console.log(
     `Server KALORI_APP berhasil berjalan di http://localhost:${PORT}`

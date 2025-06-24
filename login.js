@@ -1,4 +1,3 @@
-// ===== FILE LOGIN.JS (MENGGUNAKAN TOKEN/JWT) =====
 document.getElementById('login-form').addEventListener('submit', async function(event) {
     event.preventDefault();
     const email = document.getElementById('email').value;
@@ -13,7 +12,7 @@ document.getElementById('login-form').addEventListener('submit', async function(
         });
         const result = await response.json();
         if (result.status === 'sukses') {
-            // Simpan "Tiket Konser" (token) ke penyimpanan browser
+           
             localStorage.setItem('authToken', result.token);
             localStorage.setItem('currentUser', JSON.stringify(result.user));
             window.location.href = '/dashboard.html';

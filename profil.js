@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Pastikan pengguna sudah login
+    
     fetch('/check-session', { credentials: 'include' })
         .then(response => response.json())
         .then(data => {
@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const hasilKalkulasiEl = document.getElementById('hasil-kalkulasi');
     let tdeeResult = 0;
 
-    // Event listener untuk form TDEE
     tdeeForm.addEventListener('submit', function(event) {
         event.preventDefault();
         const gender = document.getElementById('gender').value;
@@ -35,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
         hasilKalkulasiEl.textContent = '';
     });
 
-    // Event listener untuk form tujuan
+    
     goalForm.addEventListener('submit', async function(event) {
         event.preventDefault();
         const adjustment = parseInt(document.getElementById('goal-select').value);
